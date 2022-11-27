@@ -1,0 +1,30 @@
+<h1>Sign Up</h1>
+<form action="/signup" method="post">
+<div>
+  <label for="emailInput">Email:</label>
+</div>
+<div>
+  <input type="email" name="email" id="emailInput" />
+</div>
+
+<div>
+ <label for="passwordInput">Password:</label>
+</div>
+<div>
+ <input type="password" name="password" id="passwordInput" />
+</div>
+
+<div>
+ <label for="fullNameInput">Full Name:</label>
+</div>
+<div>
+ <input type="text" name="fullName" id="fullNameInput" />
+</div>
+
+<button type="submit">Signup</button>
+
+</form>
+
+{{#if errorMessage}}
+<p style="color: red">{{errorMessage}}</p>
+{{/if}}
