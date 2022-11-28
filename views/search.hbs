@@ -1,0 +1,30 @@
+<h1>Find your pet!</h1>
+<form action="/search" method="post">
+<div>
+  <label for="petType">Pet type:</label>
+</div>
+<div>
+  <input type="text" name="petType" id="petType" />
+</div>
+
+<div>
+ <label for="breed">Breed:</label>
+</div>
+<div>
+ <input type="text" name="breed" id="breed" />
+</div>
+
+<div>
+ <label for="state">State:</label>
+</div>
+<div>
+ <input type="text" name="state" id="state" />
+</div>
+
+<button type="submit">Search</button>
+
+</form>
+
+{{#if errorMessage}}
+<p style="color: red">{{errorMessage}}</p>
+{{/if}}

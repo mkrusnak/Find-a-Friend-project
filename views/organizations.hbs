@@ -1,0 +1,12 @@
+    <h1>List of Organizations</h1>
+    {{#each results}}
+    <br>
+      <div>
+        <div>{{name}}</div>
+        <div>{{phone}}</div>
+        <div>{{email}}</div>
+        <div>{{mission_statement}}</div>
+        <div>{{address.city}}, {{address.state}} </div>
+      </div>
+      <br>
+    {{/each}}

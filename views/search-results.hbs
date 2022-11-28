@@ -1,6 +1,8 @@
-    {{#each dogs}}
+    <h1>List of pets</h1>
+    {{#each results}}
       <div>
           <img height="300px" width="300px" src="{{primary_photo_cropped.medium}}" alt="albumImg"/>
-        <div id="album-name" >{{name}}</div>
+        <div >{{name}}</div>
+        <div >{{status}}</div>
       </div>
     {{/each}}
