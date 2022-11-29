@@ -48,12 +48,13 @@ router.post('/search', (req, res, next) => {
   client.animal.search({
     type: req.body.petType,
     breed: req.body.breed,
-    location: req.body.state
+    location: req.body.state,
+    limit: 100
   })
   .then((response) => {
   
     let results = response.data.animals
-    // console.log('LOOK HERE', results)
+    // console.log('LOOK HERE', results.contact.address.state)
     res.render('search-results.hbs', {results} )
   })
   .catch(err => console.log(err))
@@ -83,19 +84,53 @@ router.post('/search/organizations/:organization_id', (req, res, next) => {
   .then(response => {
     // console.log(req.params.organization_id)
     let results = response.data.organization
-     console.log('HERE IS FOUND ORGANIZATION', results.photos[0].full)
+    //  console.log('HERE IS FOUND ORGANIZATION', results.photos[0].full)
     res.render('organization-profile.hbs', {results})
   })
   .catch(err => console.log(err))
 })
 
 
+router.post('/search/organizations/:id', (req, res, next) => {
+  client.organization.show(req.params.id)
+  .then(response => {
+    // console.log(req.params.organization_id)
+    let results = response.data
+    //  console.log('HERE IS ORGANIZATION', results)
+    res.render('organization-profile.hbs', {results: results.organization})
+  })
+  .catch(err => console.log(err))
+})
+
+
+
+router.get('/readyforpet', (req, res, next) => {
+  res.render('ready.hbs')
+})
+
+router.get('/readycat', (req, res, next) => {
+  res.render('readycat.hbs')
+})
+
+router.get('/readydog', (req, res, next) => {
+  res.render('readydog.hbs')
+})
+
+router.get('/readybird', (req, res, next) => {
+  res.render('readybird.hbs')
+})
+
+router.get('/readyrabbit', (req, res, next) => {
+  res.render('readyrabbit.hbs')
+})
+
 // router.get('/test', (req, res, next) => {
-//   client.animalData.breeds('cat')
+//   client.animalData.breeds('rabbit')
+//   // client.animal.search()
 //   .then(response => {
 //     let results = response.data.breeds
-//     console.log(results)
-//     res.send(results)
+//     console.log("HEREHEREHERE", {results})
+//     res.render('test.hbs', {results})
 //   })
 //   .catch(err => console.log(err))
 // })
