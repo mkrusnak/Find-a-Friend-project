@@ -1,4 +1,75 @@
-<h1>Find your pet!</h1>
+  <h1>Dynamic Select Statements</h1>
+<div class="container">
+  <form action="/search" method="post">
+  <div>
+    <label for="type">Pet type:</label>
+    <select name="petType" id="slct1" onchange="populate(this.id, 'slct2')">
+        <option value="">---Pick animal type---</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+    </select>
+  </div>
+
+  <div>
+<label for="breeds">Select breed:</label>
+<select name="breed" id="slct2">
+
+</select>
+  </div>
+
+  <div>
+ <label for="state">State:</label>
+</div>
+<div>
+ <input type="text" name="state" id="state" />
+</div>
+
+
+<button type="submit">Search</button>
+
+</form>
+
+
+</div>
+
+<script>
+    function populate(s1, s2) {
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+
+        s2.innerHTML = "";
+
+        if(s1.value == "Dog")
+        {
+            var optionArray = ['Shepherd', 'Boston Terrier', 'Husky']
+        } else if (s1.value == "Cat") {
+            var optionArray = ['British Shorthair', "American Curl", "Domestic Short Hair"]
+        }
+
+for(var option in optionArray)
+			{
+	
+				var newoption = document.createElement("option");
+
+				newoption.value = optionArray[option];
+				newoption.innerHTML=optionArray[option];
+				s2.options.add(newoption);
+			}
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <h1>Find your pet!</h1>
 <form action="/search" method="post">
 <div>
   <label for="petType">Pet type:</label>
@@ -27,4 +98,4 @@
 
 {{#if errorMessage}}
 <p style="color: red">{{errorMessage}}</p>
-{{/if}}
+{{/if}} --}}

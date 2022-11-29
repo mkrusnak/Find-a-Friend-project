@@ -1,11 +1,16 @@
     <h1>List of Organizations</h1>
     {{#each results}}
     <br>
+     <div>
+        {{#each photos}}
+        <img height="300px" width="300px" src="{{large}}" alt="noPhotoYet"/>
+        {{/each}}
+    </div>
       <div>
         <div>{{name}}</div>
         <div>{{phone}}</div>
         <div>{{email}}</div>
-        <div>{{mission_statement}}</div>
+        <p>{{mission_statement}}</p>
         <div>{{address.city}}, {{address.state}} </div>
       </div>
       <br>

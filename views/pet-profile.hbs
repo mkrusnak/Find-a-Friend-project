@@ -1,0 +1,43 @@
+
+<div>
+<h1>Meet {{results.name}}!</h1>
+ <div>
+    <div>
+        {{#each results.photos}}
+        <img height="300px" width="300px" src="{{medium}}" alt="noPhotoYet"/>
+        {{/each}}
+    </div>
+    <br>
+    <div>
+        <h4>{{results.description}}</h4>
+        
+        
+        <h3>Details:</h3>
+        <p>Age:{{results.age}}</p>
+        <p>Gender:{{results.gender}}</p>
+        <p>Size:{{results.size}}</p>
+           <p>Spayed/Neutured:{{#if results.attributes.spayed_neutured }} Yes {{else}} No {{/if}}</p> 
+           <p>House trained:{{#if results.attributes.house_trained }} Yes {{else}} No {{/if}}<p> 
+           <p>Special needs:{{#if results.attributes.special_needs }} Yes {{else}} No {{/if}}<p> 
+           <p>Shots current:{{#if results.attributes.shots_current }} Yes {{else}} No {{/if}}<p> 
+        
+
+    
+
+    </div>
+    <br>
+        <div>Status: {{results.status}} <br> Added on:{{postedOn}} <br> Latest update:{{results.status_changed_at}}</div>
+        
+        <p>Contact info:</p>
+        <a href="{{results.url}}">Apply for Adoption</a><br>
+        <br>
+        <form action="/search/organizations/{{results.organization_id}}" method="post">
+           <button>Organization profile</button>
+           </form>
+           <br>
+        <div>{{results.contact.address.city}}, {{results.contact.address.state}}, {{results.contact.address.postcode}}</div>
+        <div>Phone:{{results.contact.phone}}
+            <br>Email:{{results.contact.email}}</div>
+        <br>
+      </div>
+</div>

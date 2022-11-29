@@ -5,18 +5,6 @@ const { loginGetController, signupGetController, signupPostController,
 
 const {isLoggedIn, isAnon} = require('../middlewares/auth.middleware')
 
-// var _ = require('lodash');
-// // Load the core build.
-// var _ = require('lodash/core');
-// // Load the FP build for immutable auto-curried iteratee-first data-last methods.
-// const fp = require('lodash/fp');
-
-// // Load method categories.
-// const array = require('lodash/array');
-// const object = require('lodash/fp/object');
-
-// var petfinder = require('petfinder')('TixMLTQk62JaZYlQUpy21cRiWZEMYTbLDjwDUINrsPVKDaiZOc','eTdZni6tWT3FSUKKpU19dFlTwAlHhxSbqZdNBgPM');
-
 var petfinder = require("@petfinder/petfinder-js");
 var client = new petfinder.Client({apiKey: "TixMLTQk62JaZYlQUpy21cRiWZEMYTbLDjwDUINrsPVKDaiZOc", secret: "eTdZni6tWT3FSUKKpU19dFlTwAlHhxSbqZdNBgPM"});
 
@@ -35,22 +23,22 @@ router.post('/signup', isAnon, signupPostController)
 
 router.get('/logout', isLoggedIn, logoutGetController);
 
-router.get('/about', (req, res, next) => { 
-client.animal.search({
-  type: "Cat",
-  breed: "Domestic Short Hair",
-  location: "Tampa, FL"
-})
-.then((response) => {
-  let dogs = response.data.animals
-  // res.render(dogs)
-  res.send(dogs)
-  console.log(dogs)
-})
-    .catch((err) => {
-       console.log(err)
-    });
-})
+// router.get('/about', (req, res, next) => { 
+// client.animal.search({
+//   type: "Cat",
+//   breed: "Domestic Short Hair",
+//   location: "Tampa, FL"
+// })
+// .then((response) => {
+//   let dogs = response.data.animals
+//   // res.render(dogs)
+//   res.send(dogs)
+//   console.log(dogs)
+// })
+//     .catch((err) => {
+//        console.log(err)
+//     });
+// })
 
 router.get('/search', (req, res, next) => {
   res.render('search.hbs')
@@ -65,7 +53,7 @@ router.post('/search', (req, res, next) => {
   .then((response) => {
   
     let results = response.data.animals
-    console.log('LOOK HERE', results)
+    // console.log('LOOK HERE', results)
     res.render('search-results.hbs', {results} )
   })
   .catch(err => console.log(err))
@@ -77,6 +65,28 @@ router.get('/organizations', (req, res, next) => {
     let results = response.data.organizations
     res.render('organizations.hbs', {results})
   });
+})
+
+router.post('/search/:id', (req, res, next) => {
+  client.animal.show(req.params.id)
+  .then(response => {
+    // console.log(req.params.id)
+    let results = response.data.animal
+    //  console.log('HERE IS FOUND PET', results)
+    res.render('pet-profile.hbs', {results: results, postedOn: results.published_at.toLocaleString("en-US")})
+  })
+  .catch(err => console.log(err))
+})
+
+router.post('/search/organizations/:organization_id', (req, res, next) => {
+  client.organization.show(req.params.organization_id)
+  .then(response => {
+    // console.log(req.params.organization_id)
+    let results = response.data.organization
+     console.log('HERE IS FOUND ORGANIZATION', results.photos[0].full)
+    res.render('organization-profile.hbs', {results})
+  })
+  .catch(err => console.log(err))
 })
 
 

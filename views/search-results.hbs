@@ -1,8 +1,20 @@
     <h1>List of pets</h1>
     {{#each results}}
       <div>
-          <img height="300px" width="300px" src="{{primary_photo_cropped.medium}}" alt="albumImg"/>
+        {{#if primary_photo_cropped.medium}}
+          <img height="300px" width="300px" src="{{primary_photo_cropped.medium}}" alt="noPhotoYet"/>
+          {{else}} <img height="300px" width="300px" src="https://brunswick.ces.ncsu.edu/wp-content/uploads/2022/05/pets-g6fa575878_1920.jpg" alt="noPhotoYet"/>
+          {{/if}}
         <div >{{name}}</div>
         <div >{{status}}</div>
+        <div >{{contact.address.city}}, {{contact.address.state}}</div>
+        <br>
+        <div>
+           <form action="/search/{{id}}" method="post">
+           <button>More details</button>
+           </form>
+           <br>
+        </div>
       </div>
     {{/each}}
+  

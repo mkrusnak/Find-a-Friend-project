@@ -1,0 +1,30 @@
+
+<div>
+ <div>
+   <h1>{{results.name}}</h1>
+ </div>
+  <div>
+        {{#each results.photos}}
+        <img height="300px" width="300px" src="{{full}}" alt="noPhotoYet"/>
+        {{/each}}
+    </div>
+          
+    
+    <div>
+    <h3>{{mission_statement}}</h3>
+    </div>
+    <br>
+    <div>
+       
+        <h3>Contacts:</h3>
+        <p>Email:{{results.email}}</p>
+        <p>Phone:{{results.phone}}</p>
+        <p>Website:{{results.website}}</p>
+        <p>Address:{{results.address.city}}, {{results.address.state}}, {{results.address.postcode}}</p>
+        <a href="{{results.url}}">More details</a><br>
+
+    
+
+    </div>
+    
+</div>
