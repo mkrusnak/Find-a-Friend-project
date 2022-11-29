@@ -1,27 +1,34 @@
 
 <div>
  <div>
-   <h1>{{results.name}}</h1>
+   <h1>{{results.organization.name}}</h1>
  </div>
   <div>
-        {{#each results.photos}}
-        <img height="300px" width="300px" src="{{full}}" alt="noPhotoYet"/>
-        {{/each}}
+        
+        {{#if hasImage}}
+        {{!-- {{#each results.organization.photos}} --}}
+        <img height="300px" width="300px" src="{{results.organization.photos.0.full}}" alt="noPhotoYet"/>
+        {{!-- {{/each}} --}}
+        {{else}} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
+        {{/if}}
+        
     </div>
+    
+
           
     
     <div>
-    <h3>{{mission_statement}}</h3>
+    <h3>{{results.organization.mission_statement}}</h3>
     </div>
     <br>
     <div>
        
         <h3>Contacts:</h3>
-        <p>Email:{{results.email}}</p>
-        <p>Phone:{{results.phone}}</p>
-        <p>Website:{{results.website}}</p>
-        <p>Address:{{results.address.city}}, {{results.address.state}}, {{results.address.postcode}}</p>
-        <a href="{{results.url}}">More details</a><br>
+        <p>Email: {{results.organization.email}}</p>
+        <p>Phone: {{results.organization.phone}}</p>
+        <p>Address: {{results.organization.address.city}}, {{results.organization.address.state}}, {{results.organization.address.postcode}}</p>
+        <a href="{{results.organization.url}}">More details</a><br>
+        <br><a href = "mailto: {{results.organization.email}}">Volounteer</a><br>
 
     
 

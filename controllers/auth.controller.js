@@ -15,7 +15,7 @@ const loginGetController = (req, res, next) => {
 };
 
 const signupPostController = (req, res, next) => {
-    console.log(req.body)
+    // console.log(req.body)
  if (!req.body.email || !req.body.password || !req.body.fullName) {
     res.render('signup.hbs', {errorMessage : "Sorry you can't have empty fields!"});
     return;
@@ -36,7 +36,7 @@ const signupPostController = (req, res, next) => {
     })
  })
   .then((user) => {
-    console.log('New user was created', user);
+    // console.log('New user was created', user);
     res.render('login.hbs', {errorMessage : "You can now log in to your new account!"});
   })
   .catch(err => {
@@ -67,7 +67,7 @@ const loginPostController = (req, res, next) => {
 
         req.session.user = foundUser;
 
-        console.log('HERE', foundUser)
+        // console.log('HERE IS LOGGED IN USER', foundUser)
 
         res.redirect('/')
     })
@@ -79,8 +79,8 @@ const loginPostController = (req, res, next) => {
 
 
 const logoutGetController = (req, res, next) => {
+    // console.log('LOGGED OUT USER', req.session.user)
     req.session.destroy()
-    // console.log(foundUser)
     res.redirect('/')
 }
 
