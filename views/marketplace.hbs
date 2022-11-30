@@ -5,8 +5,8 @@
            </form>
            </div>
            <br>
-             {{#if errorMessage}}
-<p style="color: red">{{errorMessage}}</p>
+             {{#if message}}
+<p style="color: red">{{message}}</p>
 {{/if}}
 {{#each foundItems}}
 <br>
@@ -19,6 +19,10 @@
      <br>
      <form action="/marketplace/{{id}}/delete-item" method="post">
     <button>Delete</button>
+    </form>
+    <br>
+     <form action="/marketplace/{{id}}/edit-item" method="get">
+    <button>Edit</button>
     </form>
   
 {{/each}}

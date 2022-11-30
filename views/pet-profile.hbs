@@ -4,12 +4,14 @@
  <div>
     <div>
         
+        
+        {{#if results.photos}}
         {{#each results.photos}}
-        {{#if full}}
         <img height="300px" width="300px" src="{{full}}" alt="noPhotoYet"/>   
+        {{/each}}
         {{else }} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
         {{/if}}
-        {{/each}}
+        
     </div>
     <br>
     <div>
@@ -20,7 +22,8 @@
         <p>Age:{{results.age}}</p>
         <p>Gender:{{results.gender}}</p>
         <p>Size:{{results.size}}</p>
-           <p>Spayed/Neutured:{{#if results.attributes.spayed_neutured }} Yes {{else}} No {{/if}}</p> 
+        <h4>Attributes</h4>
+           <p>Spayed/Neutered:{{#if results.attributes.spayed_neutered }} Yes {{else}} No {{/if}}</p> 
            <p>House trained:{{#if results.attributes.house_trained }} Yes {{else}} No {{/if}}<p> 
            <p>Special needs:{{#if results.attributes.special_needs }} Yes {{else}} No {{/if}}<p> 
            <p>Shots current:{{#if results.attributes.shots_current }} Yes {{else}} No {{/if}}<p> 

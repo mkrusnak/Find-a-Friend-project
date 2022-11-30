@@ -9,7 +9,9 @@ const axios = require('axios')
 
 const Item = require('../models/Item.model')
 
+
 var petfinder = require("@petfinder/petfinder-js");
+const { endsWith } = require('lodash');
 var client = new petfinder.Client({apiKey: "TixMLTQk62JaZYlQUpy21cRiWZEMYTbLDjwDUINrsPVKDaiZOc", secret: "eTdZni6tWT3FSUKKpU19dFlTwAlHhxSbqZdNBgPM"});
 
 /* GET home page. */
@@ -51,24 +53,53 @@ router.get('/search', (req, res, next) => {
   .then((response) => {
   
     let results = response.data.animals
-    console.log('LOOK HERE', results)
-    res.render('search-results.hbs', {results: results} )
+    // console.log('LOOK HERE', results)
+    res.render('search-results.hbs', {results: results, message: req.flash('message')} )
+    
   })
   .catch(err => console.log(err))
 })
 
 router.post('/search/keys', (req, res, next) => {
-  client.animal.search({
+  let query;
+  if(!req.body.state){
+  query = {
+    type: req.body.petType,
+    breed: req.body.breed,
+    limit: 100
+  }
+  } else if(!req.body.breed) {
+  query = {
+    type: req.body.petType,
+    location: req.body.state,
+    limit: 100
+  }
+ } else {
+  query = {
     type: req.body.petType,
     breed: req.body.breed,
     location: req.body.state,
     limit: 100
-  })
+} 
+ }
+client.animal.search(query)
+  // client.animal.search({
+  //   type: req.body.petType,
+  //   breed: req.body.breed,
+  //   location: req.body.state,
+  //   limit: 100
+  // })
   .then((response) => {
   
     let results = response.data.animals
+    if (results.length == 0) {
+      req.flash('message', "Nothing here. Try again in couple days!")
+      res.redirect('/search')
+      // res.send('no pets with these parameters')
+    } 
     // console.log('LOOK HERE', results.contact.address.state)
-    res.render('search-results.hbs', {results: results} )
+    
+    res.render('search-results.hbs', { results: results })
   })
   .catch(err => console.log(err))
 })
@@ -97,7 +128,7 @@ router.post('/search/:id', (req, res, next) => {
     if (results.photos.length) {
      hasImage = true;
     }
-     console.log('HERE IS FOUND PET', results.photos, 'HAS IMAGE', hasImage)
+     console.log('HERE IS FOUND PET', results, 'HAS IMAGE', hasImage)
     res.render('pet-profile.hbs', {results: results, postedOn: results.published_at, hasImage})
   })
   .catch(err => console.log(err))
@@ -169,10 +200,13 @@ router.get('/readyrabbit', (req, res, next) => {
 })
 
 router.get('/marketplace', (req, res, next) => {
+  // res.send(req.flash('message'))
+  // req.flash('message')
   Item.find()
   .then(foundItems => {
     // console.log(foundItems)
-    res.render('marketplace.hbs', {foundItems})
+    // res.send(req.flash('message'))
+    res.render('marketplace.hbs', {foundItems, message: req.flash('message')})
   })
 })
 
@@ -198,6 +232,14 @@ router.post('/marketplace-add', (req, res, next) => {
 })
 
 
+router.post('/organizations/all', (req, res, next) => {
+  res.redirect('/organizations')
+})
+
+
+
+
+
 router.post("/marketplace/:id/delete-item", isOwner, (req, res, next) => {
   Item.findById(req.params.id)
     .then((foundItem) => {
@@ -209,6 +251,61 @@ router.post("/marketplace/:id/delete-item", isOwner, (req, res, next) => {
         console.log(err)
     })
 })
+
+router.get("/marketplace/:id/edit-item", isOwner, (req, res, next) => {
+  Item.findById(req.params.id)
+  .then((foundItem) => {
+     res.render('marketplace-edit.hbs', {foundItem})
+     })
+     .catch(err => console.log(err))
+    })
+
+
+router.post("/marketplace/:id/edit-item", isOwner, (req, res, next) => {
+  let query;
+  if(!req.body.name){
+  query = {
+    description : req.body.description,
+    image: req.body.image,
+    price: req.body.price
+  }
+  } else if(!req.body.image) {
+  query = {
+    description : req.body.description,
+    name: req.body.name,
+    price: req.body.price
+  }
+ } else if(!req.body.description) {
+  query = {
+    name : req.body.name,
+    image: req.body.image,
+    price: req.body.price
+} 
+ } else if(!req.body.price) {
+  query = {
+    name : req.body.name,
+    image: req.body.image,
+    description: req.body.description
+} 
+ } else {
+  query = {
+    name : req.body.name,
+    description : req.body.description,
+    image: req.body.image,
+    price: req.body.price
+ }
+ }
+  Item.findByIdAndUpdate(req.params.id, {
+    name : req.body.name,
+    description : req.body.description,
+    image: req.body.image,
+    price: req.body.price
+ })
+ .then(() => {
+  res.redirect('/marketplace')
+ })
+ .catch(err => console.log(err))
+  })    
 
 
 router.post("/organizations/bystate", (req, res, next) => {

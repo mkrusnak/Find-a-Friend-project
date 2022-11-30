@@ -3,7 +3,7 @@
     <div>
 <label for="state">State:</label>
 <select name="state">
- 
+ <option value="">Nationwide</option>
   <option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -59,9 +59,17 @@
   
     
     <button type="submit">Search by State</button>
+
+<form action="/organizations/all" method="post">
+<button type="submit">See All</button>
+</form>
+
     
     </div>
     </form>
+	<br>
+	
+<br>
     {{#each results}}
     <br>
      <div>

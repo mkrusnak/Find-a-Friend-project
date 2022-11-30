@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
 
+
+const flash = require('connect-flash');
 // var _ = require('lodash');
 // // Load the core build.
 // var _ = require('lodash/core');
@@ -25,11 +27,23 @@ var app = express();
 require("./config/session.config")(app);
 require('dotenv/config')
 
+app.use(flash())
+
 app.use(function(req, res, next){
   res.locals.user = req.session.user;
   // console.log(res.locals.user)
   next()
 })
+
+// app.use(function(req, res, next){
+//   req.session.user;
+//   console.log('LOCAL', res.locals.user)
+//   console.log('SESSION', req.session.user)
+//   next()
+// })
+
+
+
 
 // app.use(function(req, res, next){
 //   res.locals.user.email = req.session.user;

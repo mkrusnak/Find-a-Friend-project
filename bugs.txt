@@ -1,10 +1,1 @@
-for (var option in optionArray) {
-            var pair = optionArray[option].split("|");
-            var newOption = documet.createElement('option');
-
-            newOption.value = pair[0];
-
-            newOption.innerHTML = pair[1];
-
-            s2.options.add(newOption);
-        }
+pet profile doesnt show backup image if no image

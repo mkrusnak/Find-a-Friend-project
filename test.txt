@@ -1,9 +1,0 @@
-  _id: new ObjectId("63864e2c7702bc70f0394884"),
-    name: 'Outdoor Rabbit Cage',
-    image: 'https://secure.img1-fg.wfcdn.com/im/00707337/resize-h310-w310%5Ecompr-r85/1550/155011373/gossy-weather-resistant-rabbit-hutch-with-ramp.jpg',
-    description: 'Rabbit hutch with a deep removable pull-out tray! Not leak! Better plastic quality, easy to clean!',
-    price: 180,
-    contactEmail: 'maria@gmail.com',
-    seller: 'Maria Lewandowski',
-    __v: 0
-  }
