@@ -3,8 +3,12 @@
 <h1>Meet {{results.name}}!</h1>
  <div>
     <div>
+        
         {{#each results.photos}}
-        <img height="300px" width="300px" src="{{medium}}" alt="noPhotoYet"/>
+        {{#if full}}
+        <img height="300px" width="300px" src="{{full}}" alt="noPhotoYet"/>   
+        {{else }} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
+        {{/if}}
         {{/each}}
     </div>
     <br>

@@ -93,8 +93,12 @@ router.post('/search/:id', (req, res, next) => {
   .then(response => {
     // console.log(req.params.id)
     let results = response.data.animal
-    //  console.log('HERE IS FOUND PET', results)
-    res.render('pet-profile.hbs', {results: results, postedOn: results.published_at})
+    let hasImage = false;
+    if (results.photos.length) {
+     hasImage = true;
+    }
+     console.log('HERE IS FOUND PET', results.photos, 'HAS IMAGE', hasImage)
+    res.render('pet-profile.hbs', {results: results, postedOn: results.published_at, hasImage})
   })
   .catch(err => console.log(err))
 })
@@ -150,7 +154,7 @@ router.get('/readycat', (req, res, next) => {
 router.get('/readydog', (req, res, next) => {
   axios.get('http://dog-api.kinduff.com/api/facts?raw=true')
   .then((fact) => {
-    console.log("HERE IS DOG FACT", fact.data)
+    // console.log("HERE IS DOG FACT", fact.data)
     res.render('ready/readydog.hbs', {fact: fact.data})
   }) 
   .catch(err => console.log(err))
@@ -167,7 +171,7 @@ router.get('/readyrabbit', (req, res, next) => {
 router.get('/marketplace', (req, res, next) => {
   Item.find()
   .then(foundItems => {
-    console.log(foundItems)
+    // console.log(foundItems)
     res.render('marketplace.hbs', {foundItems})
   })
 })
@@ -188,7 +192,7 @@ router.post('/marketplace-add', (req, res, next) => {
     contactEmail: req.session.user.email,
     seller: req.session.user.fullName
 })
-.then((results) => {
+.then(() => {
     res.redirect('/marketplace')
 })
 })
@@ -197,7 +201,7 @@ router.post('/marketplace-add', (req, res, next) => {
 router.post("/marketplace/:id/delete-item", isOwner, (req, res, next) => {
   Item.findById(req.params.id)
     .then((foundItem) => {
-        console.log(foundItem);
+        // console.log(foundItem);
         foundItem.delete();
         res.redirect('/marketplace');
     })
@@ -212,7 +216,7 @@ router.post("/organizations/bystate", (req, res, next) => {
     location: req.body.state
 })
   .then((response) => {
-    console.log(response.data)
+    // console.log(response.data)
     let results = response.data.organizations
     res.render('organizations.hbs', {results})
   });

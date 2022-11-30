@@ -25,6 +25,19 @@ var app = express();
 require("./config/session.config")(app);
 require('dotenv/config')
 
+app.use(function(req, res, next){
+  res.locals.user = req.session.user;
+  // console.log(res.locals.user)
+  next()
+})
+
+// app.use(function(req, res, next){
+//   res.locals.user.email = req.session.user;
+//   console.log('local user', res.locals.user, 'sessionuser', req.session.user)
+//   next()
+// })
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
