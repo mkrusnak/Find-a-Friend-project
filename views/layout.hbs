@@ -8,31 +8,40 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-<nav class="navbar navbar-expand-lg navbar-light  navbar-round">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-round">
   <a class="navbar-brand" href="/search">Find a Friend</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+      {{#if user}}
       <li class="nav-item ">
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item ">
-        <a href="/organizations">Organizations</a>
+        <a class="nav-link" href="/organizations">Organizations</a>
       </li>
       <li class="nav-item ">
-        <a href="/readyforpet">Ready to adopt?</a>
+        <a class="nav-link" href="/readyforpet">Ready to adopt?</a>
       </li>
       <li class="nav-item ">
-        <a href="/marketplace">Marketplace</a>
+        <a class="nav-link" href="/marketplace">Marketplace</a>
       </li>
 <li class="nav-item ">
-        <a href="/mission">Our Mission</a>
+        <a class="nav-link" href="/mission">Our Mission</a>
       </li>
       <li class="nav-item ">
-        <a href="/marketplace">Logout</a>
+        <a class="nav-link" href="/logout">Logout</a>
       </li>
+      {{else}}
+       <li class="nav-item ">
+        <a class="nav-link" href="/Login">Login</a>
+      </li>
+       <li class="nav-item ">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+      {{/if}}
     </ul>
     <span class="navbar-text">
       Navbar text with an inline element
@@ -40,8 +49,8 @@
   </div>
 </nav>
 
-     <nav>
-        <h1>news page</h1>
+     {{!-- <nav>
+
 {{#if user}}
          <a href="/">Home</a>
          <a href="/search">Find a Friend</a>
@@ -56,7 +65,7 @@
          <a href="/signup">Sign Up</a>
 {{/if}}
 
-    </nav>
+    </nav> --}}
     {{{body}}}
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

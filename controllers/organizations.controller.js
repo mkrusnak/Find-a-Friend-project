@@ -10,6 +10,8 @@ const allOrgGetController = (req, res, next) => {
     })
     .then((response) => {
       let results = response.data.organizations
+      console.log('HEREHEREHERE',  results.photos)
+      results = results.filter(el => el.photos[0]?.full)
       res.render('organizations.hbs', {results})
     });
   }
