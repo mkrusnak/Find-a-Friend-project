@@ -61,7 +61,7 @@ router.get('/readyrabbit', readyRabbitController);
 
 router.get('/marketplace', marketGetController);
 
-router.post('/marketplace-add-new', isLoggedIn, marketAddGetController);
+router.get('/marketplace-add-new', isLoggedIn, marketAddGetController);
 
 router.post('/marketplace-add', marketAddPostController);
 

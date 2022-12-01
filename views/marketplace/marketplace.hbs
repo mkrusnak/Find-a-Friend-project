@@ -1,14 +1,58 @@
- <br>
- <div>
+ 
+ {{!-- <div>
  <form action="/marketplace-add-new" method="post">
            <button>Create new listing!</button>
            </form>
-           </div>
-           <br>
+           </div> --}}
+
+<div class="market-header">
+
+<h1>MARKETPLACE</h1>
+
+  </div>
+
+           <div class="error-mssg">
              {{#if message}}
 <p style="color: red">{{message}}</p>
 {{/if}}
+</div>
+
+<div class="marketplace">
 {{#each foundItems}}
+
+<div class="card listing card-color" style="width: 20rem;">
+  <img class="card-img-top" src="{{image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title ">{{name}}</h5>
+    <p class="card-text">{{description}}</p>
+  </div>
+  <ul class="list-group list-group-flush ">
+    <li class="list-group-item list-color">Price: {{price}}$</li>
+    <li class="list-group-item list-color">Seller: {{seller}}</li>
+    <li class="list-group-item list-color"><a href = "mailto: {{contactEmail}}" >Order here</a></li>
+  </ul>
+  <div class="card-body">
+    <div class="forms">
+    <form action="/marketplace/{{id}}/delete-item" method="post">
+    <button>Delete</button>
+    </form>
+    <form action="/marketplace/{{id}}/edit-item" method="get">
+    <button>Edit</button>
+    </form>
+    </div>
+    {{!-- <a href="#" class="card-link">Another link</a> --}}
+  </div>
+</div>
+
+
+{{/each}}
+
+</div>
+
+
+
+
+{{!-- {{#each foundItems}}
 <br>
      <img src="{{image}}" height="400px" width="400px">
      <h4>{{name}}</h4>
@@ -24,5 +68,27 @@
     <button>Edit</button>
     </form>
     
-{{/each}}
+{{/each}} --}}
 
+
+{{!-- {{#each foundItems}}
+  
+<div class="marketplace-containter">
+
+<div class="row row-cols-1 row-cols-md-3 g-4 market">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{image}}" class="card-img-top img-fluid" width="200px" height="200px" alt="itemImg">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{description}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+{{/each}} --}}
