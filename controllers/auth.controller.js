@@ -4,15 +4,21 @@ const bcryptjs = require('bcryptjs')
 
 const User = require('../models/User.model');
 
-
+ /////
 
 const signupGetController = (req, res, next) => {
     res.render('signup.hbs');
 };
 
+ /////
+
+
 const loginGetController = (req, res, next) => {
     res.render('login.hbs');
 };
+
+ /////
+
 
 const signupPostController = (req, res, next) => {
     // console.log(req.body)
@@ -45,6 +51,10 @@ const signupPostController = (req, res, next) => {
   })
 };
 
+
+ /////
+
+
 const loginPostController = (req, res, next) => {
     if(!req.body.email || ! req.body.password) {
         res.render('login.hbs', { errorMessage: 'Sorry you forgot email or password.'});
@@ -76,6 +86,9 @@ const loginPostController = (req, res, next) => {
         // res.send(err)
     })
 };
+
+
+ /////
 
 
 const logoutGetController = (req, res, next) => {

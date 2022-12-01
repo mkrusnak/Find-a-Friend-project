@@ -11,11 +11,15 @@ const marketGetController = (req, res, next) => {
     })
   }
 
+   /////
+
  const marketAddGetController = (req, res, next) => {
     res.render('marketplace/marketplace-add.hbs')
   }
 
-  const marketAddPostController = (req, res, next) => {
+ /////
+
+const marketAddPostController = (req, res, next) => {
     Item.create({
       name: req.body.name,
       image: req.body.image,
@@ -29,7 +33,10 @@ const marketGetController = (req, res, next) => {
   })
   }
 
-  const marketEditPostController = (req, res, next) => {
+ /////
+
+
+const marketEditPostController = (req, res, next) => {
     let query;
     if(!req.body.name){
     query = {
@@ -75,6 +82,10 @@ const marketGetController = (req, res, next) => {
    .catch(err => console.log(err))
     }
 
+
+ /////
+
+
 const marketEditGetController = (req, res, next) => {
     Item.findById(req.params.id)
     .then((foundItem) => {
@@ -82,6 +93,10 @@ const marketEditGetController = (req, res, next) => {
        })
        .catch(err => console.log(err))
       }
+
+
+ /////      
+
 
 const marketDeletePostController = (req, res, next) => {
     Item.findById(req.params.id)
@@ -95,6 +110,7 @@ const marketDeletePostController = (req, res, next) => {
       })
   }
 
+  
 
   module.exports = { marketGetController, marketAddGetController, marketAddPostController, marketEditPostController,
     marketEditGetController, marketDeletePostController}

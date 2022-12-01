@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #f4d8ae;
 }
@@ -8,4 +8,7 @@ a {
   color: #3F6844;
 }
 
-
+.navbar-round {
+  border-radius: 15px;
+  background-color: pink ;
+}

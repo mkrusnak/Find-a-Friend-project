@@ -2,9 +2,9 @@
       {{#if message}}
 <p style="color: red">{{message}}</p>
 {{/if}}
-<div class="container">
+<div>
   <form action="/search/keys" method="post">
-  <div>
+  
     <label for="type">Pet type:</label>
     <select name="petType" id="slct1" onchange="populate(this.id, 'slct2')">
         <option value="">---Pick animal type---</option>
@@ -13,7 +13,7 @@
         <option value="Bird">Bird</option>
         <option value="Rabbit">Rabbit</option>
     </select>
-  </div>
+  
 
   <div>
 <label for="breeds">Select breed:</label>
@@ -85,15 +85,15 @@
 
 
 <button type="submit">Search</button>
-
 </form>
-
-
-</div>
 <br>
 <form action="/search/all" method="post">
 <button type="submit">All Pets</button>
 </form>
+
+</div>
+
+
 
 <script>
     function populate(s1, s2) {
@@ -125,7 +125,8 @@ for(var option in optionArray)
     }
 
 </script>
-    <h1>List of pets</h1>
+    <h1>List of pets:</h1>
+	 {{!-- {{#if primary_photo_cropped.medium}} --}}
     {{#each results}}
       <div>
         {{#if primary_photo_cropped.medium}}
@@ -145,4 +146,5 @@ for(var option in optionArray)
         </div>
       </div>
     {{/each}}
+	{{!-- {{/if}} --}}
   

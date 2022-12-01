@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose')
-
+require('dotenv/config')
 
 const flash = require('connect-flash');
 // var _ = require('lodash');
@@ -25,7 +25,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 require("./config/session.config")(app);
-require('dotenv/config')
+
 
 app.use(flash())
 

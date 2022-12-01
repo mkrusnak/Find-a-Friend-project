@@ -1,9 +1,9 @@
 
 var petfinder = require("@petfinder/petfinder-js");
-var client = new petfinder.Client({apiKey: "TixMLTQk62JaZYlQUpy21cRiWZEMYTbLDjwDUINrsPVKDaiZOc", secret: "eTdZni6tWT3FSUKKpU19dFlTwAlHhxSbqZdNBgPM"});
+var client = new petfinder.Client({apiKey: process.env.PET_API_KEY, secret: process.env.PET_API_SECRET});
 
 
-
+/////
 
 
 const allPetsGetController = (req, res, next) => {
@@ -12,10 +12,17 @@ const allPetsGetController = (req, res, next) => {
     })
     .then((response) => {
       let results = response.data.animals
+      // console.log('before', results.slice(10))
+      results = results.filter(el => el.primary_photo_cropped?.medium)
+      // console.log('after', results.slice(10))
       res.render('search-results.hbs', {results: results, message: req.flash('message')} )
     })
     .catch(err => console.log(err))
   }
+
+
+  /////
+
 
 const searchPetsPostController = (req, res, next) => {
     let query;
@@ -51,10 +58,14 @@ const searchPetsPostController = (req, res, next) => {
   }
 
 
+ /////
+
 
 const searchAllPetsPostController = (req, res, next) => {
     res.redirect('/search')
   }
+
+ /////
 
 
 const petByIdController = (req, res, next) => {
@@ -70,5 +81,9 @@ const petByIdController = (req, res, next) => {
     })
     .catch(err => console.log(err))
   }
+
+
+
+
 
 module.exports = { allPetsGetController, searchPetsPostController, searchAllPetsPostController, petByIdController}

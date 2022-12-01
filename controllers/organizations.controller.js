@@ -1,6 +1,8 @@
 
 var petfinder = require("@petfinder/petfinder-js");
-var client = new petfinder.Client({apiKey: "TixMLTQk62JaZYlQUpy21cRiWZEMYTbLDjwDUINrsPVKDaiZOc", secret: "eTdZni6tWT3FSUKKpU19dFlTwAlHhxSbqZdNBgPM"});
+var client = new petfinder.Client({apiKey: process.env.PET_API_KEY, secret: process.env.PET_API_SECRET});
+
+ /////
 
 const allOrgGetController = (req, res, next) => {
     client.organization.search({
@@ -12,7 +14,11 @@ const allOrgGetController = (req, res, next) => {
     });
   }
 
-  const orgByIdPostController = (req, res, next) => {
+
+ /////
+
+
+const orgByIdPostController = (req, res, next) => {
     client.organization.show(req.params.id)
     .then(response => {
       let results = response.data
@@ -25,9 +31,16 @@ const allOrgGetController = (req, res, next) => {
     .catch(err => console.log(err))
   }
 
-  const orgRedirectPostController = (req, res, next) => {
+ /////
+
+
+const orgRedirectPostController = (req, res, next) => {
     res.redirect('/organizations')
   }
+
+
+ /////
+
 
 const orgByStatePostController = (req, res, next) => {
     client.organization.search({
@@ -44,6 +57,8 @@ const orgByStatePostController = (req, res, next) => {
   const homeGetController = (req, res, next) => {
     res.render('index');
   }
+
+
 
   module.exports = { allOrgGetController, orgByIdPostController, orgRedirectPostController,
     orgByStatePostController, homeGetController}
