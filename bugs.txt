@@ -1,1 +1,18 @@
-pet profile doesnt show backup image if no image
+
+
+
+// router.post('/search/organizations/:organization_id/pet', (req, res, next) => {
+//   client.organization.show(req.params.organization_id)
+//   .then(response => {
+//     // console.log( 'HEREHEREHERE' , req.params.organization_id)
+//     let results = response.data.organization
+//     let hasImage = false;
+//    if (results.organization.photos.length) {
+//     hasImage = true;
+//    }
+//     //  console.log('HERE IS FOUND ORGANIZATION', results)
+//     res.render('organization-profile.hbs', {results, hasImage})
+//   })
+//   .catch(err => console.log(err))
+// })
+

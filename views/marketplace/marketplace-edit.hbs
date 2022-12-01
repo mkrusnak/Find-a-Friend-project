@@ -1,0 +1,29 @@
+<h1>Edit Listing</h1>
+<div>
+    <img src="{{foundItem.image}}" alt="itemImage" width="300px" height="300px">
+    <br>
+    <form action="/marketplace/{{foundItem._id}}/edit-item" method="post">
+    <div>
+        <label for="name">New name:</label>
+            <input type="text" name="name" id="name" value="{{foundItem.name}}">
+        </div>
+        <br>
+        <div>
+        <label for="image">Enter URL for new image:</label>
+          <input type="text" name="image" id="image" value="{{foundItem.image}}"></input>
+        </div>
+        <br>
+        <div>
+        <label for="description">New description:</label>
+          <input type="text" name="description" id="description" value="{{foundItem.description}}"></input>
+        </div>
+        <br>
+        <div>
+        <label for="price">New price:</label>
+          <input type="number" name="price" id="price" value="{{foundItem.price}}"></input>
+        </div>
+        <br>
+         
+        <button type="submit">Edit</button>
+    </form>
+</div>
