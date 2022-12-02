@@ -137,6 +137,17 @@ h1 {
     -2px -1px 0 rgb(236, 53, 105);
  }
 
+.home-page {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  
+}
+
+.home-page img {
+  border-radius: 15px;
+}
+
+
  .listing {
   margin: 20px;
   border-radius: 15px;
