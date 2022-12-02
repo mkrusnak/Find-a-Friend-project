@@ -4,6 +4,12 @@ body {
   background-color: #f1f8e9;
 }
 
+.lgn-bttn {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+
 label {
   font-size: 18px;
 }
