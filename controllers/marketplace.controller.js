@@ -1,12 +1,8 @@
 const Item = require('../models/Item.model');
 
 const marketGetController = (req, res, next) => {
-    // res.send(req.flash('message'))
-    // req.flash('message')
     Item.find()
     .then(foundItems => {
-      // console.log(foundItems)
-      // res.send(req.flash('message'))
       res.render('marketplace/marketplace.hbs', {foundItems, message: req.flash('message')})
     })
   }
@@ -101,7 +97,6 @@ const marketEditGetController = (req, res, next) => {
 const marketDeletePostController = (req, res, next) => {
     Item.findById(req.params.id)
       .then((foundItem) => {
-          // console.log(foundItem);
           foundItem.delete();
           res.redirect('/marketplace');
       })

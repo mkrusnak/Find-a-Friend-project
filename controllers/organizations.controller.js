@@ -10,7 +10,6 @@ const allOrgGetController = (req, res, next) => {
     })
     .then((response) => {
       let results = response.data.organizations
-      // console.log('HEREHEREHERE',  results.photos)
       results = results.filter(el => el.photos[0]?.medium)
       res.render('organizations.hbs', {results})
     });
@@ -50,7 +49,6 @@ const orgByStatePostController = (req, res, next) => {
       limit: 100
   })
     .then((response) => {
-      // console.log(response.data)
       let results = response.data.organizations
       res.render('organizations.hbs', {results})
     });

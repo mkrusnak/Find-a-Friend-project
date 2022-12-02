@@ -18,7 +18,6 @@ const readyCatController = (req, res, next) => {
 const readyDogController = (req, res, next) => {
     axios.get('http://dog-api.kinduff.com/api/facts?raw=true')
     .then((fact) => {
-      // console.log("HERE IS DOG FACT", fact.data)
       res.render('ready/readydog.hbs', {fact: fact.data})
     }) 
     .catch(err => console.log(err))

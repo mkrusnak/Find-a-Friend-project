@@ -9,7 +9,6 @@
 
 		<div class="pet-input">
   <form action="/search/keys" method="post">
-    {{!-- <label for="type">Pet type:</label> --}}
     <select class="custom-select" name="petType" id="slct1" onchange="populate(this.id, 'slct2')">
         <option value="">---Pick animal type---</option>
         <option value="Dog">Dog</option>
@@ -20,14 +19,12 @@
   </div>
 
   <div class="pet-input">
-{{!-- <label for="breeds">Select breed:</label> --}}
 <select class="custom-select" name="breed" id="slct2">
 </select>
 </div>
   
 
 <div class="pet-input">
-{{!-- <label for="state">State:</label> --}}
 <select class="custom-select" name="state" id="slct3">
   <option value="">Nationwide</option>
 <option value="AL">Alabama</option>
@@ -137,7 +134,7 @@ for(var option in optionArray)
 
 
     <h1>List of pets:</h1>
-	 {{!-- {{#if primary_photo_cropped.medium}} --}}
+	
 
 <div class="pet-list">
 
@@ -149,7 +146,7 @@ for(var option in optionArray)
   <img class="card-img-top" src="{{primary_photo_cropped.medium}}" alt="petPhoto">
   <div class="card-body">
     <h5 class="card-title ">{{name}}</h5>
-    {{!-- <p class="card-text">{{description}}</p> --}}
+    
   </div>
   <ul class="list-group list-group-flush ">
     <li class="list-group-item list-color">Status: {{status}}</li>
@@ -168,10 +165,6 @@ for(var option in optionArray)
 {{/each}}
 
 
-
-
-   
-	{{!-- {{/if}} --}}
 	</div>
   
 

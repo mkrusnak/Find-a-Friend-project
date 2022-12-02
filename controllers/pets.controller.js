@@ -12,9 +12,7 @@ const allPetsGetController = (req, res, next) => {
     })
     .then((response) => {
       let results = response.data.animals
-      // console.log('BEFORE', results.slice(5))
       results = results.filter(el => el.primary_photo_cropped?.medium)
-      // console.log('AFTER', results.slice(5))
       console.log('LOOK HERE', results)
       res.render('search-results.hbs', {results: results, message: req.flash('message')} )
     })
@@ -77,7 +75,6 @@ const petByIdController = (req, res, next) => {
       if (results.photos.length) {
        hasImage = true;
       }
-    //    console.log('HERE IS FOUND PET', results, 'HAS IMAGE', hasImage)
       res.render('pet-profile.hbs', {results: results, postedOn: results.published_at, hasImage})
     })
     .catch(err => console.log(err))
