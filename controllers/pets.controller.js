@@ -8,7 +8,7 @@ var client = new petfinder.Client({apiKey: process.env.PET_API_KEY, secret: proc
 
 const allPetsGetController = (req, res, next) => {
     client.animal.search({
-      limit: 5
+      limit: 100
     })
     .then((response) => {
       let results = response.data.animals

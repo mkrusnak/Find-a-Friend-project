@@ -6,7 +6,7 @@ var client = new petfinder.Client({apiKey: process.env.PET_API_KEY, secret: proc
 
 const allOrgGetController = (req, res, next) => {
     client.organization.search({
-        limit: 5
+        limit: 50
     })
     .then((response) => {
       let results = response.data.organizations
