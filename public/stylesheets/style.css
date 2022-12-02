@@ -201,17 +201,32 @@ h1 {
   margin-top: 20px;
   border-radius: 15px;
   border: 1px solid #75c9b7;
-  box-shadow: 0px 0px 5px 5px rgb(251, 164, 179, 0.5);
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.3);
   text-align: center;
+  display:flex;
+  flex-direction: column;
+ }
+
+ .profile-pet-bd h4 {
+  font-size: 30px;
  }
 
  .profile-pet-bd img {
   border-radius: 15px;
   margin: 10px;
   height: 40vh;
-  border: 2px solid #000000;
-  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
+  /* border: 2px solid #000000; */
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.3) ;
  }
+
+.profile-pet-bd h3 {
+  font-size: 35px;
+}
+
+.profile-pet-bd {
+  font-size: 18px;
+}
+
 
  .card-color {
   background-color: #f8fdda;
@@ -252,6 +267,13 @@ h1 {
 
 a {
   color: #3F6844;
+}
+
+.footer-bttm {
+  background-color: #75c9b7;
+  border: 2px solid #90bb7d;
+  box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
+  border-radius: 15px;
 }
 
 .navbar-round {
@@ -506,7 +528,7 @@ a {
 
 .story {
   display: flex;
-  background: linear-gradient(165deg, rgba(253, 255, 194, 1), rgba(250, 251, 176, 1), rgba(255, 252, 160, 1));
+  background: linear-gradient(165deg, rgba(146, 221, 222, 0.527), rgba(125, 199, 179, 0.424), rgba(112, 252, 217, 0.486));
   /* background-color: #fffaad; */
   /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
   padding: 20px;
@@ -514,7 +536,7 @@ a {
   margin-bottom: 20px;
   margin-right: 5px;
   margin-left: 5px;
-  border: 10px solid #75c9b7;
+  border: 2px solid #75c9b7;
   border-radius: 20px;
   /* box-shadow: 5px 5px 5px 3px rgba(236, 109, 109, 0.4); */
   box-shadow: 0px 0px 5px 5px rgba(32, 110, 63, 0.503);

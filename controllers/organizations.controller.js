@@ -11,7 +11,7 @@ const allOrgGetController = (req, res, next) => {
     .then((response) => {
       let results = response.data.organizations
       // console.log('HEREHEREHERE',  results.photos)
-      results = results.filter(el => el.photos[0]?.full)
+      results = results.filter(el => el.photos[0]?.medium)
       res.render('organizations.hbs', {results})
     });
   }

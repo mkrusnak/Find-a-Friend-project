@@ -22,6 +22,10 @@
         
     </div>
     
+
+<div class="text-pet-profile">
+
+
     <div>
         {{!-- <h4>{{results.description}}</h4> --}}
         
@@ -30,7 +34,7 @@
         <p>Age:{{results.age}}</p>
         <p>Gender:{{results.gender}}</p>
         <p>Size:{{results.size}}</p>
-        <h4>Attributes</h4>
+        <h3>Attributes:</h3>
            <p>Spayed/Neutered:{{#if results.attributes.spayed_neutered }} Yes {{else}} No {{/if}}</p> 
            <p>House trained:{{#if results.attributes.house_trained }} Yes {{else}} No {{/if}}<p> 
            <p>Special needs:{{#if results.attributes.special_needs }} Yes {{else}} No {{/if}}<p> 
@@ -43,12 +47,17 @@
 
       <div>
     
-        <div>Status: {{results.status}} <br> Added on:{{postedOn}} <br> Latest update:{{results.status_changed_at}}</div>
+        <div>Status: {{results.status}} <br>
+        <br> Added on: {{postedOn}} <br>
+        <br> Latest update:{{results.status_changed_at}}</div>
+        <br>
+        <h4>Contact info:</h4>
         
-        <p>Contact info:</p>
-        
-
-        <form action="{{results.url}}">
+        <div>{{results.contact.address.city}}, {{results.contact.address.state}}, {{results.contact.address.postcode}}</div>
+        <div>{{results.contact.phone}}
+            <br>Email:{{results.contact.email}}</div>
+        <br>
+          <form action="{{results.url}}">
             <button class="edit-market">Apply for adoption</button>
         </form>
         <br>
@@ -56,9 +65,8 @@
            <button class="edit-market">Organization profile</button>
            </form>
            <br>
-        <div>{{results.contact.address.city}}, {{results.contact.address.state}}, {{results.contact.address.postcode}}</div>
-        <div>{{results.contact.phone}}
-            <br>Email:{{results.contact.email}}</div>
-        
       </div>
+
+</div>
+
 </div>
