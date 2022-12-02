@@ -2,9 +2,9 @@
 	<h1>List of Organizations</h1>
 	</div>
     <form action="/organizations/bystate" method="post">
-    <div>
+    <div class="org-search">
 <label for="state">State:</label>
-<select name="state">
+<select class="custom-select select-state" name="state">
 	<option value="">--select state--</option>
     <option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
@@ -60,43 +60,78 @@
 </select>
   
     
-    <button type="submit">Search by State</button>
+    <button class="edit-market" type="submit">Search by State</button>
 
 <form action="/organizations/all" method="post">
-<button type="submit">Show Nationwide</button>
-</form>
-
-    
+     <button class="edit-market" type="submit">Show Nationwide</button>
+</form>  
     </div>
     </form>
-	<br>
-	
-<br>
-    {{#each results}}
+
+    {{!-- {{#each results}}
     <br>
      <div>
       {{#if photos.0.large}}
           <img height="300px" width="300px" src="{{photos.0.large}}" alt="noPhotoYet"/>
           {{else}} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
           {{/if}}
-        {{!-- {{#each photos}}
+        {{#each photos}}
         <img height="300px" width="300px" src="{{large}}" alt="noPhotoYet"/>
-        {{/each}} --}}
+        {{/each}}
     </div>
       <div>
         <div>{{name}}</div>
         <div>{{phone}}</div>
         <div>{{email}}</div>
-        {{!-- <p>{{mission_statement}}</p> --}}
+        <p>{{mission_statement}}</p>
         <div>{{address.city}}, {{address.state}} </div>
       </div>
       <br>
       <form action="/search/organizations/{{id}}" method="post">
-           <button>Profile Page</button>
+           <button class="edit-market" >Profile Page</button>
            </form>
-    {{/each}}
+    {{/each}} --}}
 
-
-
-
+<div class="org-list">
     
+{{#each results}}
+
+
+<div class="card listing card-color" style="width: 20rem;">
+  <img class="card-img-top" src="{{photos.0.large}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title ">{{name}}</h5>
+    {{!-- <p class="card-text">{{mission_statement}}</p> --}}
+  </div>
+  <ul class="list-group list-group-flush ">
+    <li class="list-group-item list-color">Phone: {{phone}}</li>
+    <li class="list-group-item list-color">Email: {{email}}</li>
+    <li class="list-group-item list-color">{{address.city}}, {{address.state}}</li>
+  </ul>
+  <div class="card-body org-links">
+	<form class="org-bttn" action="mailto: {{results.organization.email}}">
+           <button class="edit-market" >Volounteer</button>
+           </form>
+	<form class="org-bttn" action="https://www.petfinder.com/" method="get" target="_blank">
+           <button class="edit-market" >Visit</button>
+           </form>
+    </div>
+
+</div>
+
+
+{{/each}}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,14 +8,14 @@ var client = new petfinder.Client({apiKey: process.env.PET_API_KEY, secret: proc
 
 const allPetsGetController = (req, res, next) => {
     client.animal.search({
-      page: 1,
-      limit: 50
+      limit: 5
     })
     .then((response) => {
       let results = response.data.animals
       // console.log('BEFORE', results.slice(5))
       results = results.filter(el => el.primary_photo_cropped?.medium)
       // console.log('AFTER', results.slice(5))
+      console.log('LOOK HERE', results)
       res.render('search-results.hbs', {results: results, message: req.flash('message')} )
     })
     .catch(err => console.log(err))

@@ -4,29 +4,31 @@
       {{#if message}}
 <p style="color: red">{{message}}</p>
 {{/if}}
-<div>
+<div class="pet-search">
+	<div class="pet-inputs">
+
+		<div class="pet-input">
   <form action="/search/keys" method="post">
-  
-    <label for="type">Pet type:</label>
-    <select name="petType" id="slct1" onchange="populate(this.id, 'slct2')">
+    {{!-- <label for="type">Pet type:</label> --}}
+    <select class="custom-select" name="petType" id="slct1" onchange="populate(this.id, 'slct2')">
         <option value="">---Pick animal type---</option>
         <option value="Dog">Dog</option>
         <option value="Cat">Cat</option>
         <option value="Bird">Bird</option>
         <option value="Rabbit">Rabbit</option>
     </select>
-  
-
-  <div>
-<label for="breeds">Select breed:</label>
-<select name="breed" id="slct2">
-
-</select>
   </div>
 
- <div>
-<label for="state">State:</label>
-<select name="state" id="slct3">
+  <div class="pet-input">
+{{!-- <label for="breeds">Select breed:</label> --}}
+<select class="custom-select" name="breed" id="slct2">
+</select>
+</div>
+  
+
+<div class="pet-input">
+{{!-- <label for="state">State:</label> --}}
+<select class="custom-select" name="state" id="slct3">
   <option value="">Nationwide</option>
 <option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
@@ -80,18 +82,23 @@
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
 </select>
-  </div>
-<br>
+</div>
+
+
+
 
   
-
-
-<button type="submit">Search</button>
+<div class="pet-input">
+<button class="edit-market" type="submit">Search</button>
 </form>
-<br>
+</div>
+<div class="pet-input">
 <form action="/search/all" method="post">
-<button type="submit">All Pets</button>
+<button class="edit-market" type="submit">All Pets</button>
 </form>
+</div>
+
+</div>
 
 </div>
 
@@ -106,13 +113,13 @@
 
         if(s1.value == "Dog")
         {
-            var optionArray = ['', 'Afghan Hound', 'Airedale Terrier', 'Akbash', 'Akita', 'Alaskan Malamute', 'American Bulldog', 'American Bully', 'American Eskimo Dog', 'American Foxhound', 'American Hairless Terrier', 'American Staffordshire Terrier', 'American Water Spaniel', 'Anatolian Shepherd', 'Appenzell Mountain Dog', 'Aussiedoodle', 'Australian Cattle Dog / Blue Heeler', 'Australian Kelpie', 'Australian Shepherd', 'Australian Terrier', 'Basenji', 'Basset Hound', 'Beagle', 'Bearded Collie', 'Beauceron', 'Bedlington Terrier', 'Belgian Shepherd / Laekenois', 'Belgian Shepherd / Malinois', 'Belgian Shepherd / Sheepdog', 'Belgian Shepherd / Tervuren', 'Bernedoodle', 'Bernese Mountain Dog', 'Bichon Frise', 'Black and Tan Coonhound', 'Black Labrador Retriever', 'Black Mouth Cur', 'Black Russian Terrier', 'Bloodhound', 'Blue Lacy', 'Bluetick Coonhound', 'Boerboel', 'Bolognese', 'Border Collie', 'Border Terrier', 'Borzoi', 'Boston Terrier', 'Bouvier des Flandres', 'Boxer', 'Boykin Spaniel', 'Briard', 'Brittany Spaniel', 'Brussels Griffon', 'Bull Terrier', 'Bullmastiff', 'Cairn Terrier', 'Canaan Dog', 'Cane Corso', 'Cardigan Welsh Corgi', 'Cocker Spaniel', 'Collie']
+            var optionArray = ['---select-breed---', 'Afghan Hound', 'Airedale Terrier', 'Akbash', 'Akita', 'Alaskan Malamute', 'American Bulldog', 'American Bully', 'American Eskimo Dog', 'American Foxhound', 'American Hairless Terrier', 'American Staffordshire Terrier', 'American Water Spaniel', 'Anatolian Shepherd', 'Appenzell Mountain Dog', 'Aussiedoodle', 'Australian Cattle Dog / Blue Heeler', 'Australian Kelpie', 'Australian Shepherd', 'Australian Terrier', 'Basenji', 'Basset Hound', 'Beagle', 'Bearded Collie', 'Beauceron', 'Bedlington Terrier', 'Belgian Shepherd / Laekenois', 'Belgian Shepherd / Malinois', 'Belgian Shepherd / Sheepdog', 'Belgian Shepherd / Tervuren', 'Bernedoodle', 'Bernese Mountain Dog', 'Bichon Frise', 'Black and Tan Coonhound', 'Black Labrador Retriever', 'Black Mouth Cur', 'Black Russian Terrier', 'Bloodhound', 'Blue Lacy', 'Bluetick Coonhound', 'Boerboel', 'Bolognese', 'Border Collie', 'Border Terrier', 'Borzoi', 'Boston Terrier', 'Bouvier des Flandres', 'Boxer', 'Boykin Spaniel', 'Briard', 'Brittany Spaniel', 'Brussels Griffon', 'Bull Terrier', 'Bullmastiff', 'Cairn Terrier', 'Canaan Dog', 'Cane Corso', 'Cardigan Welsh Corgi', 'Cocker Spaniel', 'Collie']
         } else if (s1.value == "Cat") {
-            var optionArray = ["", "Abyssinian", "American Bobtail", "American Curl", "American Shorthair", "American Wirehair", "Applehead Siamese", "Balinese", "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese", "Burmilla", "Calico", "Canadian Hairless", "Chartreux", "Chausie", "Chinchilla", "Cornish Rex", "Cymric", "Devon Rex", "Dilute Calico", "Dilute Tortoiseshell", "Domestic Long Hair", "Domestic Medium Hair", "Domestic Short Hair", "Exotic Shorthair", "Extra-Toes Cat / Hemingway Polydactyl", "Havana", "Himalayan", "Japanese Bobtail", "Javanese", "Korat", "LaPerm", "Maine Coon", "Manx", "Munchkin", "Nebelung", "Norwegian Forest Cat", "Ocicat", "Oriental Long Hair", "Oriental Short Hair", "Oriental Tabby", "Persian", "Pixiebob", "Ragamuffin", "Ragdoll", "Russian Blue", "Scottish Fold", "Selkirk Rex", "Siamese", "Siberian", "Silver", "Singapura", "Snowshoe", "Somali", "Sphynx / Hairless Cat", "Tabby", "Tiger", "Tonkinese", "Torbie", "Tortoiseshell", "Toyger", "Turkish Angora", "Turkish Van", "Tuxedo", "York Chocolate"]
+            var optionArray = ["---select-breed---", "Abyssinian", "American Bobtail", "American Curl", "American Shorthair", "American Wirehair", "Applehead Siamese", "Balinese", "Bengal", "Birman", "Bombay", "British Shorthair", "Burmese", "Burmilla", "Calico", "Canadian Hairless", "Chartreux", "Chausie", "Chinchilla", "Cornish Rex", "Cymric", "Devon Rex", "Dilute Calico", "Dilute Tortoiseshell", "Domestic Long Hair", "Domestic Medium Hair", "Domestic Short Hair", "Exotic Shorthair", "Extra-Toes Cat / Hemingway Polydactyl", "Havana", "Himalayan", "Japanese Bobtail", "Javanese", "Korat", "LaPerm", "Maine Coon", "Manx", "Munchkin", "Nebelung", "Norwegian Forest Cat", "Ocicat", "Oriental Long Hair", "Oriental Short Hair", "Oriental Tabby", "Persian", "Pixiebob", "Ragamuffin", "Ragdoll", "Russian Blue", "Scottish Fold", "Selkirk Rex", "Siamese", "Siberian", "Silver", "Singapura", "Snowshoe", "Somali", "Sphynx / Hairless Cat", "Tabby", "Tiger", "Tonkinese", "Torbie", "Tortoiseshell", "Toyger", "Turkish Angora", "Turkish Van", "Tuxedo", "York Chocolate"]
         } else if (s1.value == "Bird") {
-          var optionArray = ['', 'African Grey', 'Brotogeris', 'Budgie / Budgerigar', 'Button-Quail', 'Caique', 'Canary', 'Chicken', 'Cockatiel', 'Cockatoo', 'Conure', 'Dove', 'Duck', 'Eclectus', 'Emu', 'Finch', 'Goose', 'Guinea Fowl', 'Kakariki', 'Lory / Lorikeet', 'Lovebird', 'Macaw', 'Ostrich', 'Parakeet (Other)', 'Parrot (Other)', 'Parrotlet', 'Peacock / Peafowl', 'Pheasant', 'Pigeon', 'Pionus', 'Poicephalus / Senegal', 'Quail', 'Quaker Parakeet', 'Rhea', 'Ringneck / Psittacula', 'Rosella', 'Swan', 'Toucan', 'Turkey']
+          var optionArray = ['---select-breed---', 'African Grey', 'Brotogeris', 'Budgie / Budgerigar', 'Button-Quail', 'Caique', 'Canary', 'Chicken', 'Cockatiel', 'Cockatoo', 'Conure', 'Dove', 'Duck', 'Eclectus', 'Emu', 'Finch', 'Goose', 'Guinea Fowl', 'Kakariki', 'Lory / Lorikeet', 'Lovebird', 'Macaw', 'Ostrich', 'Parakeet (Other)', 'Parrot (Other)', 'Parrotlet', 'Peacock / Peafowl', 'Pheasant', 'Pigeon', 'Pionus', 'Poicephalus / Senegal', 'Quail', 'Quaker Parakeet', 'Rhea', 'Ringneck / Psittacula', 'Rosella', 'Swan', 'Toucan', 'Turkey']
         } else if (s1.value == "Rabbit") {
-          var optionArray = ['', 'American', 'American Fuzzy Lop', 'American Sable', 'Angora Rabbit', 'Belgian Hare', 'Beveren', 'Britannia Petite', 'Bunny Rabbit', 'Californian',  'Checkered Giant', 'Chinchilla', 'Cinnamon', 'Dutch', 'Dwarf', 'Dwarf Eared', 'English Lop', 'English Spot', 'Flemish Giant', 'Florida White', 'French Lop', 'Harlequin', 'Havana', 'Himalayan', 'Holland Lop', 'Hotot', 'Jersey Wooly', 'Lilac', 'Lionhead', 'Lop Eared', 'Mini Lop', 'Mini Rex', 'Netherland Dwarf', 'New Zealand', 'Palomino', 'Polish', 'Rex', 'Rhinelander', 'Satin', 'Silver', 'Silver Fox', 'Silver Marten', 'Tan']
+          var optionArray = ['---select-breed---', 'American', 'American Fuzzy Lop', 'American Sable', 'Angora Rabbit', 'Belgian Hare', 'Beveren', 'Britannia Petite', 'Bunny Rabbit', 'Californian',  'Checkered Giant', 'Chinchilla', 'Cinnamon', 'Dutch', 'Dwarf', 'Dwarf Eared', 'English Lop', 'English Spot', 'Flemish Giant', 'Florida White', 'French Lop', 'Harlequin', 'Havana', 'Himalayan', 'Holland Lop', 'Hotot', 'Jersey Wooly', 'Lilac', 'Lionhead', 'Lop Eared', 'Mini Lop', 'Mini Rex', 'Netherland Dwarf', 'New Zealand', 'Palomino', 'Polish', 'Rex', 'Rhinelander', 'Satin', 'Silver', 'Silver Fox', 'Silver Marten', 'Tan']
         }
 
 for(var option in optionArray)
@@ -127,26 +134,59 @@ for(var option in optionArray)
     }
 
 </script>
+
+
     <h1>List of pets:</h1>
 	 {{!-- {{#if primary_photo_cropped.medium}} --}}
-    {{#each results}}
-      <div>
-        {{#if primary_photo_cropped.medium}}
-          <img height="300px" width="300px" src="{{primary_photo_cropped.medium}}" alt="noPhotoYet"/>
-          {{else}} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
-          {{/if}}
-        <div>Name: {{name}}</div>
-        <div>Status: {{status}}</div>
-        <div>Breed: {{breeds.primary}}</div>
-        <div>{{contact.address.city}}, {{contact.address.state}}</div>
-        <br>
-        <div>
-           <form action="/search/{{id}}" method="post">
-           <button>More details</button>
+
+<div class="pet-list">
+
+
+{{#each results}}
+
+
+<div class="card listing card-color" style="width: 20rem;">
+  <img class="card-img-top" src="{{primary_photo_cropped.medium}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title ">{{name}}</h5>
+    {{!-- <p class="card-text">{{description}}</p> --}}
+  </div>
+  <ul class="list-group list-group-flush ">
+    <li class="list-group-item list-color">Status: {{status}}</li>
+    <li class="list-group-item list-color">Breed: {{breeds.primary}}</li>
+    <li class="list-group-item list-color">{{contact.address.city}} {{contact.address.state}}</li>
+  </ul>
+  <div class="card-body ">
+<form action="/search/{{id}}" method="post">
+           <button class="edit-market">More details</button>
            </form>
-           <br>
-        </div>
-      </div>
-    {{/each}}
+    </div>
+
+</div>
+
+
+{{/each}}
+
+
+
+
+   
 	{{!-- {{/if}} --}}
+	</div>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

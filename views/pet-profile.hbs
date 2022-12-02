@@ -1,21 +1,29 @@
 
-<div>
+
+
+
+
+
+    <div class="pet-profile">
 <h1>Meet {{results.name}}!</h1>
  <div>
-    <div>
+
+<div class="profile-pet-bd">
+
+    <div class="pet-photos">
         
         
         {{#if results.photos}}
         {{#each results.photos}}
-        <img height="300px" width="300px" src="{{full}}" alt="noPhotoYet"/>   
+        <img class="img-fluid" src="{{full}}" alt="noPhotoYet"/>   
         {{/each}}
         {{else }} <img height="300px" width="300px" src="https://i.ibb.co/yk71Pdg/backup.png" alt="noPhotoYet"/>
         {{/if}}
         
     </div>
-    <br>
+    
     <div>
-        <h4>{{results.description}}</h4>
+        {{!-- <h4>{{results.description}}</h4> --}}
         
         
         <h3>Details:</h3>
@@ -32,19 +40,25 @@
     
 
     </div>
-    <br>
+
+      <div>
+    
         <div>Status: {{results.status}} <br> Added on:{{postedOn}} <br> Latest update:{{results.status_changed_at}}</div>
         
         <p>Contact info:</p>
-        <a href="{{results.url}}">Apply for Adoption</a><br>
+        
+
+        <form action="{{results.url}}">
+            <button class="edit-market">Apply for adoption</button>
+        </form>
         <br>
         <form action="/search/organizations/{{results.organization_id}}" method="post">
-           <button>Organization profile</button>
+           <button class="edit-market">Organization profile</button>
            </form>
            <br>
         <div>{{results.contact.address.city}}, {{results.contact.address.state}}, {{results.contact.address.postcode}}</div>
-        <div>Phone:{{results.contact.phone}}
+        <div>{{results.contact.phone}}
             <br>Email:{{results.contact.email}}</div>
-        <br>
+        
       </div>
 </div>

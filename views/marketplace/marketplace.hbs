@@ -32,15 +32,17 @@
     <li class="list-group-item list-color"><a href = "mailto: {{contactEmail}}" >Order here</a></li>
   </ul>
   <div class="card-body">
+    
     <div class="forms">
+      
     <form action="/marketplace/{{id}}/delete-item" method="post">
     <button class="edit-market">Delete</button>
     </form>
+   
     <form action="/marketplace/{{id}}/edit-item" method="get">
     <button class="edit-market">Edit</button>
     </form>
     </div>
-    {{!-- <a href="#" class="card-link">Another link</a> --}}
   </div>
 </div>
 
@@ -90,5 +92,32 @@
   </div>
 </div>
 
+</div>
+{{/each}} --}}
+
+
+
+
+
+    {{!-- <div class="marketplace">
+{{#each results}}
+
+<div class="card listing card-color" style="width: 20rem;">
+  <img class="card-img-top" src="{{photos.0.large}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title ">{{name}}</h5>
+    <p class="card-text">{{mission_statement}}</p>
+  </div>
+  <ul class="list-group list-group-flush ">
+    <li class="list-group-item list-color">Phone: {{phone}}</li>
+    <li class="list-group-item list-color">Email: {{email}</li>
+    <li class="list-group-item list-color">{{address.city}}, {{address.state}}</li>
+  </ul>
+  <div class="card-body">
+    </div>
+</div>
+<form action="/search/organizations/{{id}}" method="post">
+           <button class="edit-market" >Profile Page</button>
+           </form>
 </div>
 {{/each}} --}}

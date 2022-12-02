@@ -4,9 +4,38 @@ body {
   background-color: #f1f8e9;
 }
 
+label {
+  font-size: 18px;
+}
+
 h1 {
   padding-top: 5px;
 }
+
+.pet-search {
+  /* width: 20%;
+  padding: 4px 24px 2px 12px; */
+}
+
+
+.pet-inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.pet-input {
+  margin-top: 10;
+  padding: 10px;
+
+}
+
+.pet-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /* .marketplace-containter {
   display: flex;
   flex-direction: row;
@@ -14,9 +43,28 @@ h1 {
 }
  */
 
+ /* .org-bttn {
+  display: flex;
+  justify-content: center;
+ } */
+
+ .org-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+ }
+
  .text-nav {
   font-size: 20px;
  }
+
+.org-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 
 .error-mssg {
   margin-top: 10px;
@@ -100,8 +148,69 @@ h1 {
   border-top-left-radius: 15px;
  }
 
+.pet-profile h1 {
+  margin-top: 10px;
+  text-align: center;
+  background-color: #fbe3e8;
+  border: 2px solid rgb(251, 164, 179);
+  box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
+  border-radius: 15px;
+  color: #f1f8e9;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 rgb(236, 53, 105),
+    -1px 1px 0 rgb(236, 53, 105),
+    1px -1px 0 rgb(236, 53, 105),
+    -1px -1px 0 rgb(236, 53, 105),
+    0px 1px 0 rgb(236, 53, 105),
+    0px -1px 0 rgb(236, 53, 105),
+    -1px 0px 0 rgb(236, 53, 105),
+    1px 0px 0 rgb(236, 53, 105),
+    2px 2px 0 rgb(236, 53, 105),
+    -2px 2px 0 rgb(236, 53, 105),
+    2px -2px 0 rgb(236, 53, 105),
+    -2px -2px 0 rgb(236, 53, 105),
+    0px 2px 0 rgb(236, 53, 105),
+    0px -2px 0 rgb(236, 53, 105),
+    -2px 0px 0 rgb(236, 53, 105),
+    2px 0px 0 rgb(236, 53, 105),
+    1px 2px 0 rgb(236, 53, 105),
+    -1px 2px 0 rgb(236, 53, 105),
+    1px -2px 0 rgb(236, 53, 105),
+    -1px -2px 0 rgb(236, 53, 105),
+    2px 1px 0 rgb(236, 53, 105),
+    -2px 1px 0 rgb(236, 53, 105),
+    2px -1px 0 rgb(236, 53, 105),
+    -2px -1px 0 rgb(236, 53, 105);
+}
+
  .list-color {
   background-color: #f8fdda;
+ }
+
+ .pet-photos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  float: left;
+  margin-top: 10px;
+ }
+
+ .profile-pet-bd {
+  background-color: #75c9b72c;
+  margin-top: 20px;
+  border-radius: 15px;
+  border: 1px solid #75c9b7;
+  box-shadow: 0px 0px 5px 5px rgb(251, 164, 179, 0.5);
+  text-align: center;
+ }
+
+ .profile-pet-bd img {
+  border-radius: 15px;
+  margin: 10px;
+  height: 40vh;
+  border: 2px solid #000000;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
  }
 
  .card-color {
@@ -191,7 +300,7 @@ a {
   margin-top: 10px;
   text-align: center;
   background-color: #fbe3e8;
-  border: 1px solid rgb(251, 164, 179);
+  border: 2px solid rgb(251, 164, 179);
   box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
   border-radius: 15px;
   color: #f1f8e9;
@@ -235,7 +344,7 @@ a {
   margin-bottom: 5px;
   text-align: center;
   background-color: #fbe3e8;
-  border: 1px solid rgb(251, 164, 179);
+  border: 2px solid rgb(251, 164, 179);
   box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
   border-radius: 15px;
   color: #f1f8e9;
@@ -270,7 +379,7 @@ a {
   padding-bottom: 3px;
   text-align: center;
   background-color: #fbe3e8;
-  border: 1px solid rgb(251, 164, 179);
+  border: 2px solid rgb(251, 164, 179);
   box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
   border-radius: 15px;
   color: #f1f8e9;
@@ -304,7 +413,7 @@ a {
 .add-item-head h1 {
   text-align: center;
   background-color: #fbe3e8;
-  border: 1px solid rgb(251, 164, 179);
+  border: 2px solid rgb(251, 164, 179);
   box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
   border-radius: 15px;
   padding-bottom: 5px;
@@ -340,7 +449,7 @@ a {
 .stories-header h1 {
   text-align: center;
   background-color: #fbe3e8;
-  border: 1px solid rgb(251, 164, 179);
+  border: 2px solid rgb(251, 164, 179);
   box-shadow: 0 5px 4px -1px rgba(0,0,0,0.3);
   border-radius: 15px;
   color: #f1f8e9;
@@ -409,6 +518,27 @@ a {
   border-radius: 20px;
   /* box-shadow: 5px 5px 5px 3px rgba(236, 109, 109, 0.4); */
   box-shadow: 0px 0px 5px 5px rgba(32, 110, 63, 0.503);
+}
+
+.ready-card img {
+ border-top-left-radius: 15px;
+ border-top-right-radius: 15px;
+}
+.select-state {
+  width: 20%;
+  padding: 4px 24px 2px 12px;
+  
+}
+
+.org-search {
+  margin-top: 15px;
+}
+
+.ready-card {
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 5px rgb(251, 164, 179, 0.5);
+  background-color: #f8fdda;
 }
 
 .story-content {
