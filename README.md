@@ -5,3 +5,12 @@ User can set the filters such as location/pet-type/age/size to find a pet that f
 So if user wants to contribute to the community they can find nerby organization and contact them directly to volunteer or foster.
 You can also list pet-related things for sale, read pet-ralated articles and more.
 This project has full CRUD implemented. I used Express Session as authenication method for a user.
+
+Summary:
+
+• Built using ExpressJs, NodeJs, Axios, MongoDB and HandlebarsJs
+• Implemented 3rd party REST API using Axios to get data and filter it based on users input
+• Used Mongoose to create models with full CRUD capabilities
+• Full authentication done with Express-Session and bcryptJs
+
+made by mkrusnak
